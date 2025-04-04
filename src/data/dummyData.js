@@ -1,5 +1,5 @@
 export const dummyOrgData = {
-    currentUser: 3,
+    currentUser: 2,
     rootUsers: [
         {
             id: 1,
@@ -14,8 +14,8 @@ export const dummyOrgData = {
                 {
                     id: 2,
                     person: {
-                        avatar: "AD",
-                        name: "Alice Doe",
+                        avatar: "SJ",
+                        name: "Shivam Jain",
                         title: "Chief Technology Officer (CTO)",
                         totalReports: 3,
                     },
@@ -74,17 +74,7 @@ export const dummyOrgData = {
                                     children: [],
                                 },
                             ],
-                        },
-                        {
-                            id: 7,
-                            person: {
-                                avatar: "AA",
-                                name: "Anita Agarwal",
-                                title: "DevOps Engineer",
-                                totalReports: 0,
-                            },
-                            children: [],
-                        },
+                        }
                     ],
                 },
                 {

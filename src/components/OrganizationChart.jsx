@@ -53,11 +53,12 @@ const OrganizationChart = ({ data }) => {
         }
     };
 
-    const renderChart = (users) => (
+    const renderChart = (users, depth = 0) => (
         <div className="org-level">
             {users.map((user) => {
                 const hasChildren = user.expanded && user.children?.length > 0;
-                return (
+
+                const userNode = (
                     <div key={user.id} className="org-node">
                         <div
                             className={`organization_chart_node ${user.id === currentUserId ? "highlight-user" : ""}`}
@@ -75,14 +76,35 @@ const OrganizationChart = ({ data }) => {
                         {hasChildren && (
                             <>
                                 <div className="connector-down" />
-                                <ChildrenConnectorGroup childrenData={user.children} renderChart={renderChart} />
+                                <ChildrenConnectorGroup
+                                    childrenData={user.children}
+                                    renderChart={(children) => renderChart(children, depth + 1)}
+                                />
                             </>
                         )}
                     </div>
                 );
+
+                // ✅ Only wrap with logo if it's depth 0 (top-most root user)
+                if (depth === 0) {
+                    return (
+                        <div key={user.id} className="root-wrapper">
+                            <div className="root-logo-circle">
+                                <div className="dot" />
+                                <div className="dot" />
+                                <div className="dot" />
+                            </div>
+                            <div className="connector-down-from-circle" />
+                            {userNode}
+                        </div>
+                    );
+                }
+
+                return userNode;
             })}
         </div>
     );
+
 
     return (
         <div className="scroll-container">
