@@ -22,7 +22,7 @@ A smooth, interactive, and customizable **React component library** to visualize
 npm install org-chart-react
 # or
 yarn add org-chart-react
-
+```
 ---
 
 
