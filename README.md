@@ -23,6 +23,7 @@ npm install org-chart-react
 # or
 yarn add org-chart-react
 
+---
 
 
 🚀 Usage
@@ -41,6 +42,7 @@ const App = () => {
 
 export default App;
 
+---
 
 📁 Dummy Data Structure
 export const dummyOrgData = {
@@ -60,6 +62,7 @@ export const dummyOrgData = {
   ],
 };
 
+---
 
 Each node supports:
 
@@ -71,9 +74,15 @@ expanded: Boolean to control visibility of children
 
 children: Array of child nodes
 
+
+---
+
 🧩 Props
 Prop	Type	Description
 data	object	The org chart data (see structure above)
+
+
+---
 
 
 🖼️ CSS Styling
@@ -88,6 +97,7 @@ Key classes:
 .connector-down, .connector-up, .connector-horizontal – Connector lines between nodes
 
 
+---
 
 
 🧠 How it Works
@@ -100,6 +110,7 @@ Key classes:
 .ResizeObserver: Dynamically adjusts horizontal connector lines
 
 
+---
 
 🛠️ Development
 Clone the repository and run it locally:
@@ -109,6 +120,8 @@ cd org-chart-react
 npm install
 npm start
 
+---
+
 
 🧪 Testing and Contribution
 Feel free to fork the repo, build new features, or report bugs!
@@ -116,6 +129,8 @@ Feel free to fork the repo, build new features, or report bugs!
 # Run tests (if applicable)
 npm test
 
+
+---
 
 
 To Contribute:
