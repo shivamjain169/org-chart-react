@@ -1,0 +1,261 @@
+/* Header container */
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    /* space between title and info */
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--org-primary);
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    /* subtle shadow */
+}
+
+/* Header title */
+.headerTitle {
+    font-size: 18px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* spacing between icon and text */
+}
+
+/* Header info (employee count, current user) */
+.headerInfo {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* Main wrapper */
+.scrollContainer {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #f5faff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollable tree area */
+.orgTree {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: auto;
+    padding: 20px;
+}
+
+/* Each level of the org chart */
+.orgLevel {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: fit-content;
+    flex-wrap: nowrap;
+    min-width: 100%;
+}
+
+/* Each node in the chart */
+.orgNode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: fit-content;
+}
+
+/* Node card */
+.organizationChartNode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--org-bg);
+    border-radius: 12px;
+    padding: var(--org-node-padding);
+    width: 220px;
+    text-align: center;
+    box-shadow: var(--org-shadow);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    z-index: 2;
+    color: var(--org-font-color);
+}
+
+/* Node hover effect */
+.organizationChartNode:hover {
+    background-color: var(--org-hover);
+    box-shadow: 0 0 10px rgba(0, 102, 204, 0.25);
+}
+
+/* Highlight for current user */
+.highlightUser {
+    border: 2px solid var(--org-primary);
+    background-color: var(--org-highlight);
+}
+
+/* Node avatar circle */
+.nodeAvatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--org-primary);
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 10px;
+}
+
+/* Name in node */
+.nodeName {
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--org-font-color);
+}
+
+/* Title under name */
+.nodeTitle {
+    font-size: 12px;
+    color: var(--org-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Reports count */
+.nodeReports {
+    font-size: 12px;
+    margin-top: 6px;
+    color: var(--org-primary);
+    font-weight: 500;
+}
+
+/* Line going down from a node */
+.connectorDown {
+    height: 20px;
+    width: 2px;
+    background: var(--org-primary);
+    margin: 0 auto;
+}
+
+/* Children block wrapper */
+.childrenWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Row of children */
+.childrenRow {
+    display: flex;
+    gap: 40px;
+    position: relative;
+    width: fit-content;
+    justify-content: center;
+}
+
+/* Horizontal connector line */
+.connectorHorizontal {
+    position: absolute;
+    top: 0;
+    height: 2px;
+    background-color: var(--org-primary);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Wrapper for connector bar */
+.connectorContainer {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+/* Child with line going up */
+.childWithConnector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Line going up to a child */
+.connectorUp {
+    width: 2px;
+    height: 20px;
+    background-color: var(--org-primary);
+    z-index: 1;
+}
+
+/* Special styling for the root user */
+.rootWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Dots above root */
+.rootLogoCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-bottom: 2px;
+    z-index: 2;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Dots inside the circle */
+.rootLogoCircle .dot {
+    width: 2px;
+    height: 2px;
+    background-color: #666;
+    border-radius: 50%;
+}
+
+/* Line from dot to root card */
+.connectorDownFromCircle {
+    width: 1px;
+    height: 10px;
+    background-color: #ccc;
+    margin-bottom: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .organizationChartNode {
+        width: 160px;
+        font-size: 12px;
+    }
+
+    .nodeAvatar {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .headerContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+}
