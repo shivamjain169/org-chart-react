@@ -1,6 +1,6 @@
 {
   "name": "org-chart-react",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "React library to render organization charts",
   "main": "dist/org-chart-react.umd.js",
   "module": "dist/org-chart-react.es.js",
@@ -13,6 +13,9 @@
     ".": {
       "import": "./dist/org-chart-react.es.js",
       "require": "./dist/org-chart-react.umd.js"
+    },
+    "./dist/org-chart-react.css": {
+      "default": "./dist/org-chart-react.css"
     }
   },
   "peerDependencies": {
