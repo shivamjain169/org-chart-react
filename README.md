@@ -31,7 +31,7 @@ yarn add org-chart-react
 ```jsx
 import React from "react";
 import OrganizationChart from "org-chart-react";
-import "org-chart-react/dist/styles.css"; // Import default styles
+import "org-chart-react/dist/org-chart-react.css";
 import { dummyOrgData } from "./data";
 
 const App = () => {
