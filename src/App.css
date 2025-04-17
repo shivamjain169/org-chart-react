@@ -1,13 +1,20 @@
 :root {
-  --org-primary: #0056b3;
-  --org-bg: #f9fbfd;
-  --org-highlight: #e3f2fd;
-  --org-font-color: #222;
+  --org-primary: #3a8fd3;
+  --org-bg: #ffffff;
+  --org-highlight: #eaf4fc;
+  --org-font-color: #333333;
+  --org-muted: #6b7280;
+  --org-hover: #f0f7ff;
+  --org-shadow: 0 2px 8px rgba(58, 143, 211, 0.15);
+  --org-hover-shadow: 0 0 10px rgba(0, 102, 204, 0.25);
   --org-node-padding: 16px;
-  --org-shadow: 0 4px 10px rgba(0, 86, 179, 0.15);
-  --org-hover: #f0f8ff;
-  --org-muted: #666;
+  --org-avatar-text: #ffffff;
+  --org-avatar-bg: #ddd;
+  --org-connector-muted: #ccc;
+  --org-header-color: #ffffff;
 }
+
+
 
 #root {
   text-align: center;

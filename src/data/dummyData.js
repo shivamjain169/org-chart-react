@@ -14,10 +14,10 @@ export const dummyOrgData = {
                 {
                     id: 2,
                     person: {
-                        avatar: "SJ",
+                        avatar: "https://media-process.hibob.com/image/upload/q_auto:best,f_auto,a_exif,t_avatar,w_240,h_240/hibob/avatar/631227/images/b8e230ed-9aa2-42bc-a6ae-04adc7e2e0c8?token=X19jbGRfdG9rZW5fXz1leHA9MTc1MzMxOTU4MH5hY2w9KiUyZmhpYm9iJTJmYXZhdGFyJTJmNjMxMjI3JTJmaW1hZ2VzJTJmYjhlMjMwZWQtOWFhMi00MmJjLWE2YWUtMDRhZGM3ZTJlMGM4Kn5obWFjPWMxNzkwMzllZmEyYWUyMjVhNWIzZTVlNzQxYWQ2ZmVmYzMwMDYzNjY4MTY5Y2I3NjA1MTkxMzQ3OTU4NWFjYTk=&vendor=cloudinary",
                         name: "Shivam Jain",
                         title: "Chief Technology Officer (CTO)",
-                        totalReports: 3,
+                        totalReports: 2,
                     },
                     expanded: false,
                     children: [

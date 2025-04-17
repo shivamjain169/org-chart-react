@@ -1,6 +1,6 @@
 {
   "name": "org-chart-react",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "React library to render organization charts",
   "main": "dist/org-chart-react.umd.js",
   "module": "dist/org-chart-react.es.js",
