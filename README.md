@@ -11,7 +11,8 @@ A smooth, interactive, and highly customizable React component library to visual
 - 🔁 Recursive rendering of nested org trees
 - 🧲 Draggable canvas for easy navigation
 - 🧠 Smart dynamic connectors (vertical & horizontal lines)
-- 🎨 Fully customizable via CSS and renderNode
+- 🎨 Fully customizable via CSS variables and `renderNode`
+- 🖼️ Supports avatars via URL, base64, or fallback initials
 - 🧱 Flexible layout for wide and deep trees
 - 📱 Responsive and mobile-friendly
 
@@ -62,28 +63,130 @@ export default App;
 
 📁 Dummy Data Structure
 ```ts
-interface Person {
-  avatar: string;
-  name: string;
-  title: string;
-  totalReports: number;
-}
+export const dummyOrgData = {
+  currentUser: 2,
+  rootUsers: [
+    {
+      id: 1,
+      person: {
+        avatar: "JS",
+        name: "John Smith",
+        title: "Chief Executive Officer (CEO)",
+        totalReports: 2,
+      },
+      expanded: false,
+      children: [
+        {
+          id: 2,
+          person: {
+            avatar:
+              "https://randomuser.me/api/portraits/men/65.jpg",
+            name: "Shivam Jain",
+            title: "Chief Technology Officer (CTO)",
+            totalReports: 2,
+          },
+          expanded: false,
+          children: [
+            {
+              id: 5,
+              person: {
+                avatar: "RK",
+                name: "Raj Kapoor",
+                title: "Frontend Lead",
+                totalReports: 2,
+              },
+              expanded: false,
+              children: [
+                {
+                  id: 8,
+                  person: {
+                    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+                    name: "Aarti Sharma",
+                    title: "Frontend Engineer",
+                    totalReports: 0,
+                  },
+                  children: [],
+                },
+                {
+                  id: 9,
+                  person: {
+                    avatar: "https://randomuser.me/api/portraits/men/22.jpg",
+                    name: "Ravi Verma",
+                    title: "UI Developer",
+                    totalReports: 0,
+                  },
+                  children: [],
+                },
+              ],
+            },
+            {
+              id: 6,
+              person: {
+                avatar: "SK",
+                name: "Sandeep Kumar",
+                title: "Backend Lead",
+                totalReports: 1,
+              },
+              expanded: false,
+              children: [
+                {
+                  id: 10,
+                  person: {
+                    avatar: "https://randomuser.me/api/portraits/men/23.jpg",
+                    name: "Rohan Mehta",
+                    title: "Backend Engineer",
+                    totalReports: 0,
+                  },
+                  children: [],
+                },
+              ],
+            },
+          ],
+        },
+        {
+          id: 3,
+          person: {
+            avatar: "AM",
+            name: "Anjali Mehta",
+            title: "Chief Marketing Officer (CMO)",
+            totalReports: 1,
+          },
+          expanded: false,
+          children: [
+            {
+              id: 7,
+              person: {
+                avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+                name: "Ritika Patel",
+                title: "Marketing Specialist",
+                totalReports: 0,
+              },
+              children: [],
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
 
-interface Node {
-  id: number;
-  person: Person;
-  expanded?: boolean;
-  children?: Node[];
-}
-
-interface OrgData {
-  currentUser: number; // Highlighted/centered user ID
-  rootUsers: Node[];
-}
 ```
 
----
+### 🖼️ Avatar Support
 
+The `avatar` field supports the following formats:
+
+| **Type**           | **Example**                                                                 |
+|--------------------|------------------------------------------------------------------------------|
+| **Image URL**       | `"https://example.com/avatar.jpg"`                                          |
+| **Public path**     | `"/avatars/john.jpg"` (image must be placed under your `/public` folder)    |
+| **Base64 string**   | `"data:image/png;base64,iVBORw0KG..."`                                      |
+| **Fallback initials** | `"SJ"` → Will auto-render a styled circle with the initials `SJ`           |
+
+📌 **Avoid using local system paths** like `C:\\Users\\...` as they will **not work in the browser**.
+
+
+---
 
 ## 🧩 Props API
 
@@ -108,14 +211,19 @@ Use these variables in your root CSS or override per component:
 
 ```css
 :root {
-  --org-primary: #0066cc;
+  --org-primary: #3a8fd3;
   --org-bg: #ffffff;
-  --org-highlight: #e0f0ff;
-  --org-font-color: #222;
+  --org-highlight: #eaf4fc;
+  --org-font-color: #333333;
+  --org-muted: #6b7280;
+  --org-hover: #f0f7ff;
+  --org-shadow: 0 2px 8px rgba(58, 143, 211, 0.15);
+  --org-hover-shadow: 0 0 10px rgba(0, 102, 204, 0.25);
   --org-node-padding: 16px;
-  --org-shadow: 0 4px 12px rgba(0, 102, 204, 0.1);
-  --org-hover: #f0f8ff;
-  --org-muted: #666;
+  --org-avatar-text: #ffffff;
+  --org-avatar-bg: #ddd;
+  --org-connector-muted: #ccc;
+  --org-header-color: #ffffff;
 }
 ```
 
